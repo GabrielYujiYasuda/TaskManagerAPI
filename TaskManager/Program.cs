@@ -1,4 +1,10 @@
 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using TaskManager.Data;
+using TaskManager.Repositories;
+using TaskManager.Repositories.Interfaces;
+
 namespace TaskManager
 {
     public class Program
@@ -13,6 +19,15 @@ namespace TaskManager
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //CHANGES v
+            builder.Services.AddEntityFrameworkSqlServer()
+                .AddDbContext<TaskManagerDBContext>(
+                    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
+                );
+
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            //CHANGES ^
 
             var app = builder.Build();
 
