@@ -5,12 +5,17 @@ namespace TaskManager.Data
 {
     public class TaskManagerDBContext : DbContext
     {
-        public DbSet<UserModel> Users { get; set; }
-
-        //Constructor
         public TaskManagerDBContext(DbContextOptions<TaskManagerDBContext> options) 
             : base(options)
         {
+        }
+
+        public DbSet<UserModel> Users { get; set; }
+        public DbSet<TaskModel> Tasks{ get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
