@@ -9,6 +9,5 @@ namespace TaskManager.Repositories.Interfaces
         Task<TaskModel> AddTask(TaskModel taskModel);
         Task<TaskModel> UpdateTask(TaskModel taskModel, int id);
         Task<bool> DeleteTask(int id);
-
     }
 }

@@ -27,6 +27,8 @@ namespace TaskManager
                 );
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+            builder.Services.AddScoped<ITaskRepository, TaskRepository>();
             //CHANGES ^
 
             var app = builder.Build();

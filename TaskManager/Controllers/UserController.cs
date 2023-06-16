@@ -44,7 +44,7 @@ namespace TaskManager.Controllers
         public async Task<ActionResult<UserModel>> UpdateUser([FromBody] UserModel userModel, int id)
         {
             userModel.Id = id;
-            UserModel user = await _userRepository.UpdateUser(userModel, 2);
+            UserModel user = await _userRepository.UpdateUser(userModel, id);
 
             return Ok(user);
         }
