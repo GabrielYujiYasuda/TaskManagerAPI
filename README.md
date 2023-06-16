@@ -1,4 +1,4 @@
-<h1 align=center>Parking Control App</h1>
+<h1 align=center>Task Manager API</h1>
 
 <strong>On this repository I created a simple API containing a complete CRUD, storing every data on a relational database.</strong>
 <p>For this project I used the following technologies:</p>
