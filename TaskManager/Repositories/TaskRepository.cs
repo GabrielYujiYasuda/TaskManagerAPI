@@ -16,12 +16,16 @@ namespace TaskManager.Repositories
 
         public async Task<List<TaskModel>> GetAllTasks()
         {
-            return await _dbContext.Tasks.ToListAsync();
+            return await _dbContext.Tasks
+                .Include(x => x.User)
+                .ToListAsync();
         }
 
         public async Task<TaskModel> GetTaskById(int id)
         {
-            return await _dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbContext.Tasks
+                .Include(x => x.User)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<TaskModel> UpdateTask(TaskModel taskModel, int id)
